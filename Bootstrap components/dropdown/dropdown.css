@@ -1,0 +1,460 @@
+body
+{
+	text-align: center;
+}
+
+.box
+{
+	/*display: flex;*/
+
+	border: 1px solid #e6e6e6;
+	width: 70%;
+	margin: auto;
+	margin-top: 30px;
+	height: 100px;
+	/*flex-direction: column;*/
+	text-align: left;
+	padding: 15px;
+	border-radius: 5px;
+	
+}
+
+/*.boxNew
+{
+	height: 
+}*/
+
+h6
+{
+	font-size: 20px;
+	padding:0;
+	margin: 0;
+
+}
+
+.box .container
+{
+	/*display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));*/
+	/*align-items: center;*/
+	/*grid-template-rows: 1fr;*/
+	/*display: flex;
+	flex-direction: row;*/
+	border: 1px solid #8c8c8c;
+	height: 50px;
+	margin-top: 14px;
+	border-radius: 5px;
+	/*position: relative;*/
+	/*position: fixed;*/
+	/*align-items: baseline;*/
+	background-color: #e6e6e6;
+	/*display: inline-block;*/
+	/*overflow: hidden;*/
+	display: flex;
+	justify-content: flex-start;
+
+
+}
+
+.containerNew
+{
+	/*height: 100px;*/
+}
+
+
+
+ .box .container .project
+{
+	color: #4d4d4d;
+	width: 150px;
+	/*position: absolute;*/
+	/*line-height: 20px;*/
+	/*height: 50px;*/
+	padding-top: 10px;
+	padding-left: 10px;
+	font-size: 22px;
+
+	/*margin-bottom: 30px;*/
+	
+	
+
+        
+}
+
+
+
+
+.box .container .drop
+{
+	/*width: 100px;*/
+	/*border:1px solid black*/;
+	/*text-align: center;*/
+	/*display: inline-block;*/
+	margin-left: 10px;
+	/*height: 70px;*/
+}
+
+
+.box .container .btn
+{
+	padding: 10px;
+	outline: none;
+	/*position: fixed;*/
+	/*border-radius: 5px;*/
+	background-color: transparent;
+	border: transparent;
+	/*margin-left: 10px;*/
+	width: 100px;
+	/*margin-bottom: 10px;*/
+	color: #4d4d4d;
+	height: 50px;
+	/*border:1px solid black;	*/
+}
+
+
+.box .container .rightdropdiv{
+	/*position: absolute;
+	right: 10px;*/
+	/*border:1px solid black;*/
+	/*float: right;*/
+	width: 200px;
+	text-align: center;
+	height: 50px;
+	margin-left: 240px;
+}
+
+.box .container .rightdropdiv .rightdrop
+{
+	/*display: flex;*/
+	padding: 10px;
+	/*border-radius: 5px;*/
+	background-color: transparent;
+	border: transparent;
+	float: right;
+	/*position: absolute;
+	right: 1px;*/
+	color: #4d4d4d;
+	/*border:1px solid black;*/
+
+	/*align-items: baseline;*/
+	 
+}
+
+.project:hover, .btn:hover, .rightdrop:hover
+{
+	cursor: pointer;
+	color: black;
+	
+}
+
+.project:hover
+{
+	text-decoration: underline;
+}
+
+.box .container .btnNew	
+{
+	background-color: #bfbfbf;
+	/*outline: none;*/
+	/*background-color: green;*/
+}
+
+.box .container .rightdropdiv .btnNew	
+{
+	background-color: #bfbfbf;
+	/*outline: none;*/
+	/*background-color: green;*/
+}
+
+
+.firstlist
+{
+	border-top: transparent;
+	border-bottom:1px solid #8c8c8c;
+	border-right:1px solid #8c8c8c;
+	border-left: 1px solid #8c8c8c;
+	/*margin-top: 0px;*/
+	/*position: relative;*/
+	/*height: 120px;*/
+	text-align: left;
+	height: 0px;
+	width: 150px;
+	background-color: white;
+	overflow: hidden;
+	box-shadow: 2px 2px 10px  #999999;
+
+	/*display: none;*/
+}
+
+.rightlist
+{
+	text-align: left;
+	/*margin-top: 50px;*/
+	float: right;
+
+/*	margin-right: 50px;*/
+}
+
+
+.list
+{
+	/*border:1px solid black;*/
+		/*display: flex;
+		flex-direction: column;*/
+	padding: 0px;
+	margin: 0;
+
+
+
+}
+
+li
+{
+	/*text-decoration: none;*/
+	list-style: none;
+	width: 100%;
+	/*margin-left: 2px;
+	margin-bottom: 5px;*/
+	margin:0;
+	/*border:1px solid black;*/
+	/*position: absolute;*/
+	/*left: 0;*/
+	padding: 5px;
+	height: 20px;
+	/*margin: 0;*/
+
+}
+
+/*.frame
+{
+	border:1px solid black;
+}*/
+
+li:hover
+{
+	background-color: #e6e6e6;
+	cursor: pointer;
+
+}
+
+/*.separate
+{
+	border:1px solid black;
+}*/
+
+.firstListNew
+{
+	height: auto;
+}
+
+.scrollbtn
+{
+	border: 1px solid #8c8c8c;
+	width: 40px;
+	margin: 5px;
+	border-radius: 5px;
+	display: none;
+	/*margin-left: 5px;
+	margin-right: 5px;*/
+
+}
+.line
+{
+	border: 1px solid #666666;
+	/*margin-bottom: 12px;*/
+	padding-bottom: 2px;
+	margin-top: 7px;
+	margin-left: 2px;
+	margin-right: 2px;
+	background-color: black;
+
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 1302px)
+{
+	.box
+	{
+		width: 850px;
+	}
+
+	.box .container .project
+	{
+		font-size: 20px;
+	}
+
+	.box .container .btn
+	{
+		width: 80px;
+	}
+
+	.box .container .drop
+	{
+		width:100px;
+
+	}
+
+	.firstlist
+	{
+		width: 100px;
+	}
+
+	.rightlist
+	{
+		width: 120px;
+	}
+
+	li
+	{
+		font-size: 10px;
+	}
+
+
+	@media only screen and (max-width: 903px)
+	{
+		.box
+		{
+			/*display: flex;*/
+			max-width: 90%;
+			height: auto;
+			/*flex-direction: column;*/
+		}
+		.box .container
+		{
+			display: flex;
+			flex-direction: column;
+			/*max-width: 100%;*/
+			overflow: hidden;
+			/*height: 200px;*/
+			height: 50px;
+			/*max-height:50px;*/
+			transition: height 1s;
+
+		}
+		.box .container .navBar
+		{
+			display: flex;
+			flex-direction: row;
+			height: 50px;
+			justify-content: space-between; 
+			border-bottom: 1px solid #8c8c8c;
+			/*overflow: hidden;*/
+		}
+
+
+		.scrollbtn
+		{
+			display: inline-block;
+			height: 40px;
+
+			/*position: fixed;*/
+
+			/*justify-content: flex-end;*/
+			/*align-self: */
+		}
+
+		.scrollbtn:hover
+		{
+			cursor: pointer;
+			background-color: #999999;
+		}
+		
+
+		.box .container .project
+		{
+			height: 100px;
+			margin-bottom: 15px;
+		}
+
+		.box .container .drop
+		{
+			width: 100%;
+			margin: auto;
+			/*height: 170px;
+			
+			overflow: hidden;*/
+
+		}
+
+		.drop
+		{
+			height: 50px;
+			overflow: hidden;
+		}
+
+		
+		.box .container .btn
+		{
+			width: 100%;
+			text-align: left;
+			border: none;
+
+		}
+
+		.firstlist
+		{
+			width: 100%;
+
+		}
+		
+
+		.box .container .rightdropdiv 
+		{
+			width: 100%;
+			margin: auto;
+		}
+		.box .container .rightdropdiv
+		{
+			height: 50px;
+			overflow: hidden;
+		}
+
+		.rightlist
+		{
+			width: 100%;
+		}
+
+		.box .containerNew
+		{
+			height: auto;
+			/*background-color: #bfbfbf;*/
+			/*max-height: auto;*/
+		}
+
+		.box .container .dropNew
+		{
+			height: auto;
+			background-color: #bfbfbf;
+		}
+
+		 .firstListNew
+		{
+			background-color: #e6e6e6;
+		}
+		li
+		{
+			font-size: 15px;
+			color: #4d4d4d;
+		}
+
+		li:hover
+		{
+			color: black;
+		}
+		
+	}
+
+	/*@media only screen and (max-width: 886px)
+	{
+		.box .container
+		{
+
+		}
+	}*/
+
+}

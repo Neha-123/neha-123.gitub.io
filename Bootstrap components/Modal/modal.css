@@ -1,0 +1,281 @@
+
+
+
+.box
+{
+	position: relative;
+	border: 1px solid #999999;
+	padding: 20px;
+	margin: auto;
+	margin-top: 20px;
+	width: 70%;
+	/*z-index: -1;*/
+}
+
+.box .example
+{
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: 	#999999;
+}
+
+.box .button
+{
+	margin-top: 20px;
+}
+
+.box .button .btn
+{
+	padding: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;	
+	color: white;
+	background-color: #4d79ff;	
+	font-size: 20px;
+	border-radius: 7px;
+	outline: none;
+	border:none;
+
+}
+
+.box .button .btn:hover
+{
+	cursor: pointer;
+	background-color: #002699;
+}
+
+.box .button .btnactive
+{
+	cursor: default;
+	background-color: #001a66;
+	color: #a6a6a6;
+
+}
+
+.box .button .btnactive:hover
+{
+	cursor: default;
+	background-color: #001a66;
+
+}
+
+.modal-container {
+	position: fixed; /*div covers the whole screen*/
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;	
+    z-index: 1;
+    overflow: auto; /*to add the scroll bar*/
+    background: rgba(0, 0, 0, 0.51); /*to fade the background when the modal is on*/
+    opacity: 1;
+    transition: 0.2s;
+   
+}
+
+.hide {
+	display: none; /*to hide the modal-container*/
+    
+}
+
+.fade {
+	transition: 0.2s ease;
+	opacity: 0;
+
+}
+
+.modal-container.in    
+{
+	display: block;   /*to display  the modal-container*/
+
+	
+}
+
+
+
+
+
+.modal
+{
+	position: relative; 
+	display: flex;
+	flex-direction: column;
+	width: 40%;
+	margin: 30px auto;		
+	border: 1px solid #cccccc;
+	border-radius: 10px;
+	font-family: Sans-serif;
+	padding: 20px;	
+	box-shadow:10px 20px 20px grey;
+	transform: translateY(-25%); 
+	transition: 0.2s ease;
+	z-index: 1;		
+	background-color: white;
+	height: auto;
+	padding-bottom: 20px;		
+	
+
+}
+
+.modal-container.in .modal.open{
+	transform: translateY(0px);
+	transition: 0.5s ease;
+	
+}
+
+
+
+/*.modal-container.fade
+{
+	opacity: 0;
+	    transition: opacity 3s linear;
+}
+
+.modal-container.in
+{
+	opacity: 1;
+}*/
+
+
+/*.modal-container.fade 
+{
+	transition: transform .3s ease-out;
+	transform: translate(0,-50%);
+}*/
+
+
+/*.modal-container.in 
+{		
+		
+	    transform: translate(0,0);
+}*/
+
+/*.slide-in {
+	margin: 20;
+}*/
+
+
+
+.modal .cross
+{
+	color: #cccccc;
+	align-self: flex-end;
+	font-size: 25px;
+	font-weight: 900;
+	width: 40px;
+	transform: rotate(45deg);
+}
+
+.modal .cross:hover
+{
+	cursor: pointer;
+	color: #666666;
+}
+
+.modal .text
+{
+	font-size: 15px;
+	line-height: 20px;
+	color: #404040;
+	
+
+}
+
+.modal .modalbutton
+{
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 10px;
+	border-radius: 5px;
+	outline: none;
+	border:1px solid #999999;
+	background-color: white;
+}
+
+.modal .modalbutton:hover
+{
+	cursor: pointer;
+	background-color: #e6e6e6;
+}
+
+.modal .modaltooltip
+{
+	color: #0044cc;
+}
+
+.modal .modaltooltip:hover
+{
+	cursor: pointer;
+	text-decoration: underline;
+	color: #002266;
+}
+.footerbutton
+{
+	display: flex;
+	justify-content: flex-end;
+	/*border:1px solid #999999;*/
+	/*width:500px;*/
+}
+
+.modal  .closebutton
+{
+	margin-left: 220px;
+	margin-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 15px;
+	padding-top: 10px;
+	padding-right: 15px;	
+	background-color: white;
+	border-radius: 5px;
+	outline: none;
+	border:1px solid #999999;
+	display:inline-block;
+
+}
+
+.modal .closebutton:hover
+{
+	cursor: pointer;
+	background-color: #e6e6e6;
+
+}
+
+.modal .savebutton
+{
+	float: right;
+
+	padding-bottom: 10px;
+	padding-left: 15px;
+	padding-top: 10px;
+	padding-right: 15px;
+	background-color: #4d88ff;
+	color: white;
+	border-radius: 5px;
+	outline: none;
+	border:none;
+}
+
+.modal .savebutton:hover
+{
+	cursor: pointer;
+	background-color: #003399;
+}
+
+
+@media only screen and (max-width: 1000px)
+{
+	.modal
+	{
+		width: 90%;
+	}
+}
+
+@media only screen and (max-width: 500px)
+{
+	.modal
+	{
+		max-width: 80%;
+	}
+}
+
+

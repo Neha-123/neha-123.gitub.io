@@ -1,0 +1,213 @@
+
+.box
+{
+	border: 1px solid #e6e6e6;
+	width: 50%;
+	margin: auto;
+	margin-top: 30px;
+	padding: 20px;
+}
+
+.box .project
+{
+	font-size: 1.5em;
+	/*font-weight: 10px;*/
+	color: #737373;
+	text-transform: uppercase;
+}
+
+.box .container
+{
+	/*border: 1px solid black;*/
+	/*padding: 10px;*/
+	display: flex;
+	height: 50px;
+	margin-top: 20px;
+	border-bottom: 1px solid #e6e6e6;
+	/*justify-content: flex-start;*/
+	/*align-self: baseline;*/
+	/*align-items: center;*/
+	/*flex-direction: row;*/
+	/*border: 1px solid black;*/
+}
+
+
+/*.box .container .nav	
+{
+	border: 1px solid pink;
+	width: 100%;
+	
+}*/
+
+.box .container  .btnDiv
+{
+	
+	/*display: inline-block;*/
+	margin-left: 10px;
+		height: 50px;
+		/*margin-bottom: 10px;*/
+
+	
+}
+
+.box .container .btnDiv .btn
+{
+	font-size: 1em;
+	padding: 15px;
+	height: 50px;
+	width: 100px;
+	border: none;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;	
+	background-color: transparent;
+	color: #007acc;
+	outline: none;
+
+
+
+}
+
+.box .container .btnDiv .btn:hover
+{
+	cursor: pointer;
+	background-color: #f2f2f2;
+
+}
+
+
+
+.box .container .dropdownbtnDiv
+{
+	
+	height: 50px;
+	z-index: 0;
+	
+
+}
+
+.box .container .dropdownbtnDiv .dropList
+{
+	height: 0px;
+	overflow: hidden;
+	box-shadow: 2px 2px 10px  #999999;
+	background-color: white;
+}
+
+.box .container .dropdownbtnDiv .dropList .list
+{
+	padding-left: 0;
+
+}
+
+.box .container .dropdownbtnDiv .dropList .list li
+{
+	font-size: 1em;
+	padding: 10px;
+	/*border: 1px solid black;*/
+	list-style: none;
+
+}
+
+.box .container .dropdownbtnDiv .dropList .list li:hover
+{
+	cursor: pointer;
+	background-color: #f2f2f2;
+}
+
+.box .content
+{
+	display: none;
+	/*transition: display 2s;*/
+	color: #737373;
+	/*display: block;*/
+	/*margin-top: 50px;*/
+	width: 100%;
+	z-index: -1;
+	/*opacity: 1;
+    transition: 0.3s ease;*/
+
+}
+
+.box .contentShow
+{
+	display: block;
+
+
+}
+
+.fade
+{
+	opacity: 0;
+	transition: 0.5s ease;
+	
+}
+
+.box .container .btnDiv .btnActive
+{
+	background-color: white;
+	border-right: 1px solid #bfbfbf;
+	border-left: 1px solid #bfbfbf;
+	border-top: 1px solid #bfbfbf;
+	border-bottom: none;
+	color: #666666;
+}
+
+.box .container .dropdownbtnDiv .btnActive
+{
+	border-right: 1px solid #0047b3;
+	border-left: 1px solid #0047b3;
+	border-top: 1px solid #0047b3;
+	background-color: #f2f2f2;
+}
+
+.box .container .dropdownbtnDiv .btnselectedActive
+{
+	background-color: white;
+	border-right: 1px solid #bfbfbf;
+	border-left: 1px solid #bfbfbf;
+	border-top: 1px solid #bfbfbf;
+	/*  outline: 1px solid red;
+  outline-offset: 1px;*/
+	/*border-bottom: 3px solid pink;
+	padding-bottom: 2px;*/
+	color: #666666;
+}
+
+
+.box .container .btnDiv .btnActive:hover
+{
+	background-color: white;
+
+	cursor: default ;
+}
+
+
+.box .container .dropdownbtnDiv .btnActive:hover
+{
+	background-color: #f2f2f2;
+	cursor: pointer;
+}
+
+.box .container .dropdownbtnDiv .btnselectedActive:hover
+{
+	background-color: white;
+	cursor: default ;
+}
+
+.box  .container .dropdownbtnDivActive
+{
+	height: auto;
+	/*z-index: 0;*/
+}
+
+.box .container  .dropdownbtnDiv .dropListActive
+{
+	height: auto;
+
+}
+
+.box .container .dropdownbtnDiv .dropList .list .listElementActive
+{
+	background-color: #007acc;
+	color: white;
+}

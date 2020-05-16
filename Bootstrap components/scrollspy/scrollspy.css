@@ -1,0 +1,375 @@
+
+
+.box
+{
+	border:1px solid #bfbfbf;
+	padding: 10px;
+	width: 60%;
+	margin: auto;
+	border-radius: 5px;
+	/*height: 350px;*/
+	/*overflow-y: scroll;*/
+}
+
+.box h6
+{
+	font-size: 20px;
+	padding:0px;
+	margin: 0px;
+
+}
+
+.box .navBar
+{
+	border:1px solid #bfbfbf;	
+	height: 50px;
+	margin-top: 20px;
+	/*padding: 15px;*/
+	border-radius: 5px;
+	display: flex;	
+	align-items: center;
+	background-color: #f2f2f2;
+
+}
+
+.box .navBar  .project
+{
+	/*display: inline-block;*/
+	/*border:1px solid black;*/
+	float: left;
+	font-weight: 30px;
+	font-size: 25px;
+	margin: 15px;
+	color: #737373;
+
+}
+
+
+.box .navBar .navbtn
+{
+	display: inline-block;
+	height: 40px;
+	border: 1px solid #8c8c8c;
+	width: 40px;
+	margin: 5px;
+	border-radius: 5px;
+	display: none;
+
+}
+
+.line
+{
+	border: 1px solid #666666;
+	/*margin-bottom: 12px;*/
+	padding-bottom: 2px;
+	margin-top: 7px;
+	margin-left: 2px;
+	margin-right: 2px;
+	background-color: black;
+
+}
+
+.navbtn:hover
+{
+	cursor: pointer;
+	background-color: #999999;
+}
+
+.box .navBar  .buttonDiv
+{
+	/*display: inline-block;*/
+	/*border:1px solid black;*/
+		
+	margin-right: 10px;
+
+	
+
+}
+
+.box .navBar  .buttonDiv .button
+{
+	font-size: 15px;
+	/*height: 50px;*/
+	color: #737373;
+	background-color: transparent;
+	outline: none;
+	border: none;
+	/*border: 1px solid black;*/
+	padding-bottom: 16px;
+	padding-top: 16px;	
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+.box .navBar .dropdownDiv
+{
+	justify-content: flex-start;
+}
+
+.box .navBar .dropdownDiv .buttondrop
+{
+	padding: 5px;
+	height: 50px;
+	font-size: 15px;
+	color: #737373;
+	background-color: transparent;
+	outline: none;
+	border: none;
+}
+
+a
+{
+	text-decoration-line: none;
+	text-decoration: none;
+	/*border: 1px solid black;*/
+	/*padding-bottom: 15px;
+	padding-top: 15px;	
+	padding-right: 5px;
+	padding-left: 5px;*/
+	/*height: 70px;
+	width: 30px;*/	
+}
+
+.box .navBar .project:hover, .box .navBar  .buttonDiv .button:hover, .box .navBar .dropdownDiv .buttondrop:hover
+{
+	cursor: pointer;
+	color: #000000;
+	/*color: blue;*/
+}
+
+.project:hover
+{
+	text-decoration: underline;
+}
+
+		
+
+.box .navBar .dropdownDiv
+{
+		height: 50px;
+		align-self: baseline;
+		overflow: hidden;
+		z-index: 1;
+}
+
+.box .navBar .dropdownDiv .Droplist
+{
+	width: 140px;
+	border:1px solid #bfbfbf;
+	background-color: white;
+
+
+}
+
+.box .navBar .dropdownDiv .Droplist .list
+{
+	/*border:1px solid black;*/
+	padding-left: 0px;
+	margin-top: 0px;
+	 /* z-index: 0;*/
+	background-color: white;
+	
+}
+
+li
+{
+	list-style: none;
+	/*border:1px solid black;*/
+	padding-top: 4px;
+	padding-bottom: 4px;
+	/*padding-left: 8px;*/
+	font-size: 16px;
+	  /*z-index: 0;*/
+	color: #737373;
+
+
+}
+
+li:hover
+{
+	background-color: #f2f2f2;
+	cursor: pointer;
+}
+
+.box .navBar .dropdownDiv .Droplist .list a
+{
+	/*border:1px solid black;*/
+	padding-right: 100px;
+	margin-left: 0;
+	padding-left: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-decoration-line: none;
+	text-decoration: none;
+	color: #737373;
+/*	width: 100px;*/
+
+}
+
+
+.box .navBar  .buttonDiv .buttonActive
+{
+	background-color: #d9d9d9;
+	/*background-color: white;*/
+}
+
+.box .navBar .dropdownDivActive
+{
+	height:auto;
+}
+
+.box .navBar .dropdownDiv .Droplist .list .buttonlistActive
+{
+	background-color: #0059b3;
+	
+}
+
+.box .navBar .dropdownDiv .Droplist .list .buttonlistActive a
+{
+	color: white;
+}
+
+.content
+{
+	margin-top: 20px;
+	height: 300px;
+	 /* z-index: -1;*/
+	overflow-y: scroll;
+	position: relative;
+}
+
+h2
+{
+	color: #666666;
+}
+
+p
+{
+	font-size: 17px;
+	line-height: 1.5em;
+	color: #666666;
+}
+
+@media only screen and (max-width: 1230px)
+{
+		.box .navBar
+		{
+			display: flex;
+			flex-direction: column;
+			/*height: 210px;*/
+			height: 50px;
+			overflow: hidden;
+			/*height: auto;*/
+			/*justify-content: space-between; */
+
+		}
+		.box .navBar .navbtn
+		{
+			display: inline-block;
+		}
+		.box .navBar .container
+		{
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.box .navBar  .buttonDiv
+		{
+			margin-top: 10px;
+			margin-bottom: 30px;
+			margin-right: 0;
+			margin-left: 0;
+			width: 100%;
+			position: relative;
+		}
+		.box .navBar  .buttonDiv .button
+		{
+			padding-right: 90%;
+			padding-left: 4%;
+			width: 6%;
+			padding-bottom: 15px;
+			padding-top: 15px;
+			position: absolute;
+
+		}
+
+		.content
+		{
+			margin-top:30px;
+		}
+		.box .navBar .dropdownDiv
+		{
+			/*padding-top: 20px;
+			padding-bottom: 20px;*/
+			/*border: 1px solid black;*/
+			height: 50px;
+			margin-top: 20px;
+			margin-bottom: 0;
+			/*margin-left: 10px;*/
+			overflow: hidden;
+			/*display: flex;
+			flex-direction: column;*/
+			/*display: block;*/
+				
+		}
+
+		.box .navBar  .dropdownDiv .button
+		{
+			padding-left: 10px;
+			padding-right: 100%;
+			margin-top: 0px;
+
+			/*height: 100px;*/
+			/*padding-left: 10px;*/
+			/*width: 100%;*/
+		}
+		.box .navBar  .dropdownDiv .Droplist
+		{
+			width: 100%;
+			margin-top: 50px;
+			/*margin-bottom: 10px;*/
+			/*border: 1px solid black;*/
+			height: auto;
+
+		}
+
+		.box .navBar .dropdownDiv .Droplist .list
+		{
+			background-color: #f2f2f2;
+			margin-bottom: 0;
+			height: auto;
+		}
+
+		.box .navBar .dropdownDiv .Droplist .list li
+		{
+			padding-bottom: 20px;
+		}
+
+
+		.box .navBar .dropdownDiv .Droplist .list a
+		{
+			padding-right: 100%;
+			padding-bottom: 10px;
+			
+
+		}
+
+		.box .navBarActive
+		{
+			height: auto;
+		}
+
+		.box .navBar .dropdownDivActive
+		{
+			height:auto;
+		}
+
+
+
+
+
+		
+}
+
+

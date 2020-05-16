@@ -1,0 +1,171 @@
+
+.box
+{
+	border: 1px solid #cccccc;
+	padding: 20px;
+	width: 50%;
+	margin: auto;
+	margin-top: 30px;
+}
+
+.box .example
+{
+	text-transform: uppercase;
+	color: #737373;
+	letter-spacing: 3px;
+}
+
+.box .buttonlist
+{
+/*	border: 1px solid #cccccc;*/
+	
+	margin-top: 20px;
+	
+}
+
+.box .buttonlist .button
+{
+	padding: 10px;
+	margin-right: 5px;
+	background-color: white;
+	border-radius: 5px;
+	border:1px solid #cccccc;
+	outline: none;
+	position: relative;
+	/*z-index: -1;*/
+}
+
+.box .buttonlist .button:hover
+{
+	cursor: pointer;
+	background-color: #f2f2f2;
+}
+
+.box .buttonlist .button .text
+{
+	display: none;
+	position: absolute;
+	border:1px solid #cccccc;
+	padding: 15px;
+	width: 250px;
+	border-radius: 5px;
+	text-align: left;
+	z-index: 1;
+	background-color: white;
+	cursor: text;
+	box-shadow: 2px 2px 5px #888888;
+	opacity: 0;
+	transition: 0.4s;
+}
+
+.box .buttonlist .button .active
+{
+	display: block;
+
+}
+
+.box .buttonlist .button .fade
+{
+	opacity: 1;
+	transition: 0.4s;
+}
+
+.box .buttonlist .buttonActive
+{
+	
+	background-color: #b3b3b3;
+}
+
+.box .buttonlist .buttonActive:hover
+{
+	
+	background-color: #b3b3b3;
+}
+
+.box .buttonlist .button #right
+{
+	left: 110%;
+	top: -50%;
+	
+}
+
+
+.box .buttonlist .button .rightArrow
+{
+	position: absolute;
+	left: -3%;
+	top: 40%;
+	color: transparent;
+	padding: 7px;
+	background-color: white;
+	border-width: 1px;
+	border-style: solid;
+	 border-color: transparent #cccccc #cccccc transparent ;
+	 transform: rotate(135deg);
+
+}
+
+.box .buttonlist .button #top
+{
+	left: -50%;
+	bottom: 140%;
+	
+}
+
+.box .buttonlist .button .topArrow
+{
+	position: absolute;
+	left: 40%;
+	bottom: -15%;
+	background-color: white;
+	border-width: 1px;
+	border-style: solid;
+	 border-color: transparent #cccccc #cccccc transparent ;
+	 padding: 7px;
+	 transform: rotate(45deg);
+	
+}
+
+.box .buttonlist .button #bottom
+{
+	left: -50%;
+	top: 140%;
+	
+}
+
+
+.box .buttonlist .button .bottomArrow
+{
+	position: absolute;
+	left: 40%;
+	top: -15%;
+	background-color: white;
+	border-width: 1px;
+	border-style: solid;
+	 border-color: transparent #cccccc #cccccc transparent ;
+	 padding: 7px;
+	 transform: rotate(-135deg);
+	
+}
+
+.box .buttonlist .button #left
+{
+	right: 110%;
+	top: -50%;
+	
+}
+
+.box .buttonlist .button .leftArrow
+{
+	position: absolute;
+	right: -3%;
+	bottom: 40%;
+	background-color: white;
+	border-width: 1px;
+	border-style: solid;
+	 border-color: transparent #cccccc #cccccc transparent ;
+	 padding: 7px;
+	 transform: rotate(-45deg);
+	
+}
+

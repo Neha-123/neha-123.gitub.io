@@ -1,0 +1,9 @@
+showimage(n)
+
+hideimage(n)
+
+showimagefromright(n)
+hideimagetoleft(n)
+
+showimagefromleft(n)
+hideimagetoright(n)

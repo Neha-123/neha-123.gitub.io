@@ -1,0 +1,152 @@
+
+
+.box
+{
+	border: 1px solid #cccccc;
+	padding: 20px;
+	width: 60%;
+	margin: auto;
+	margin-top: 70px;
+
+}
+
+.box .example
+{
+	
+	color: #737373;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+}
+
+.box .buttonlist
+{
+	
+	/*border: 1px solid #cccccc;*/
+	width: 70%;
+	margin: auto;
+	margin-top: 20px;
+	margin-left: 150px;
+
+}
+
+.box .buttonlist .button
+{
+	display: inline-block;
+	border: 1px solid #cccccc;
+	margin-right: 5px;
+	padding: 10px;
+	border-radius: 5px;
+	position: relative;
+
+
+}
+
+.box .buttonlist .button:hover
+{
+	background-color: #f2f2f2;
+	cursor: pointer;
+}
+
+.box .buttonlist .button .text
+{
+	display: none;
+	border: 1px solid black;
+	padding: 5px;
+	font-size: 12px;
+	border-radius: 5px;
+	color: white;
+	background-color: black;
+	position: absolute;
+	width: 65%;
+	opacity: 0;
+	transition: 0.4s;
+}
+
+.box .buttonlist .button .active
+{
+	display: block;
+}
+
+.box .buttonlist .button .fade
+{
+	opacity: 0.9;
+	transition: 0.4s;
+}
+
+
+.box .buttonlist .button #left
+{
+	/*display: block;*/
+	right: 110%;
+	bottom: 10%;
+}
+
+.box .buttonlist .button #left .leftarrow
+{
+	position: absolute;
+	/*border: 1px solid black;*/
+	left: 100%;
+	
+	bottom: 25%;
+	border-width: 5px;
+	border-style: solid;
+	 border-color: transparent transparent transparent #555  ;
+
+}
+
+
+
+.box .buttonlist .button #top
+{
+	right: 10%;
+	bottom: 130%;
+}
+
+.box .buttonlist .button #top .toparrow
+{
+	position: absolute;
+	left:40%;
+	top: 100%;
+	border-width: 5px;
+	border-style: solid;
+	 border-color: #555 transparent transparent transparent ;
+}
+
+
+.box .buttonlist .button #bottom
+{
+	top: 130%;
+	left:10%;
+	
+}
+
+.box .buttonlist .button #bottom .bottomarrow
+{
+	position: absolute;
+	bottom: 100%;
+	left: 40%;
+	border-width: 5px;
+	border-style: solid;
+	 border-color:transparent transparent #555 transparent ;
+}
+
+
+
+.box .buttonlist .button #right
+{
+	left: 110%;
+	bottom: 10%;
+}
+
+.box .buttonlist .button #right .rightarrow
+{
+	position: absolute;
+	left:-12%;
+	bottom: 30%;
+	border-width: 5px;
+	border-style: solid;
+	 border-color:transparent #555  transparent transparent ;
+}
+
+
+

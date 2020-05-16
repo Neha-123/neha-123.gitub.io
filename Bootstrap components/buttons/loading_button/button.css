@@ -1,0 +1,33 @@
+body
+{
+	text-align: center;
+}
+
+button
+{
+	padding: 15px;
+	margin : 10px;
+	background-color: #4d88ff ;
+	color: white;
+	border-radius: 10px;
+	font-size: 1em;
+	border : none;
+	width: 200px;
+}
+
+.load, .load:hover
+{
+	
+	background-color: #80bfff ;
+	
+	cursor: not-allowed;
+}
+
+
+button:hover
+{
+	cursor: pointer;
+	background-color: #003399;
+}
+
+
