@@ -1,0 +1,28 @@
+body
+{
+	justify-content: center;	
+	text-align: center;
+	background : linear-gradient(to right, red , yellow);
+}
+
+h1
+{
+	text-align: center;
+	justify-content: center;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+}
+
+h2
+{
+	text-align: center;
+	justify-content: center;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+}
+
+h3
+{
+	color: black;
+}
+

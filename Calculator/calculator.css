@@ -1,0 +1,123 @@
+.background
+{
+	background-color: #918c8c3b;
+	/*position: static;*/
+	/*opacity: 0.5;*/
+	color: #000000;
+	border:1px solid #7a7a7a5c;
+}
+
+.background .screen 
+{
+    padding-bottom: 10px; 
+}
+.background .screen .smallScreen
+{
+	/*border:1px solid black;*/
+	text-align: right;
+	padding-right: 15px;
+	padding-top: 5px;
+	height: 20px;
+
+}
+
+.background .screen .bigScreen
+{
+
+	text-align: right;
+	padding: 10px;
+	padding-bottom: 60px;
+	font-size: 40px;
+	font-weight: 900;
+	/*border:1px solid black;*/
+}
+
+.background .buttonScreen 
+{
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	grid-gap: 2px;
+	text-align: center;
+	position: relative;
+}
+
+.background .buttonScreen .operationButton
+{
+	background-color: #ffffffd6;
+	/*border:1px solid black;*/
+	padding: 30px;
+}
+
+.background .buttonScreen .operationButton:hover
+{
+	background-color: #918c8c4f;
+}
+
+.background .buttonScreen  .numberButton
+{
+	background-color:white;
+	padding: 10px;
+	font-size: 20px;
+	font-weight: 900;
+}
+
+.background .buttonScreen .numberButton:hover
+{
+	background-color: #918c8c4f;
+}
+
+.background .buttonScreen .sign
+{
+	background-color:white;	
+}
+
+.background .buttonScreen  .decimal
+{
+	background-color:white;	
+}
+
+
+
+.background .buttonScreen .equals
+{
+	background-color: #3399ff69;
+}
+
+.background .buttonScreen .equals:hover
+{
+	background-color: #3399ffb8;
+}
+
+.background .buttonScreen .equalActive
+{
+	background-color: #3385ff;
+}
+
+.background .buttonScreen .equalActive:hover
+{
+	background-color: #3385ff;
+}
+
+.background .buttonScreen .active
+{
+	background-color: #999999;
+}
+.background .buttonScreen .active:hover
+{
+	background-color: #999999;
+}
+
+.borderAnimation
+{
+	position: absolute;
+	height: 150px;
+  	width: 150px;
+	/*height: 50px;
+  	width: 50px;
+  	border-radius:50%;
+  	background-color: red;
+   background-image: radial-gradient(white, rgba(255,0,0,0.5));*/
+
+   z-index: -1;
+}
+

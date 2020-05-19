@@ -1,0 +1,64 @@
+48	0
+49	1
+50	2
+51	3
+52	4
+53	5
+54	6
+55	7
+56	8
+57	9
+110	decimal point numpad
+
+9	tab
+
+53	5 = shift+%
+8	backspace / delete = backspace
+13	enter = for equals
+187	equal sign
+27	escape = clearall
+46	delete = CE
+81	q = square
+106	multiply numpad
+107	add numpad
+109	subtract numpad
+189	dash = subtraction
+111	divide numpad
+191	forward slash = division
+
+120	f9 = for sign
+
+16	shift
+17	ctrl
+18	alt
+
+
+
+37	left arrow
+38	up arrow
+39	right arrow
+40	down arrow
+
+
+
+
+96	numpad 0
+97	numpad 1
+98	numpad 2 down
+99	numpad 3
+100	numpad 4 left
+101	numpad 5
+102	numpad 6 right
+103	numpad 7
+104	numpad 8 up
+105	numpad 9
+
+
+
+
+
+
+
+
+
+
