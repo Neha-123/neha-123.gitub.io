@@ -1,0 +1,5 @@
+create project => npx create-react-app 'project name'
+inside index.js import component 'hello' and render hello
+create new file from src => name it as hello.js => import react component => create class hello that extends component => render (){return("data is given here")} => export hello
+.css class can also be included in hello.js
+to compile and run on server ==> npm start
