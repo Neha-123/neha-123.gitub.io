@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Person from './Person/Person';
 import ErrorBoundary from '../../containers/ErrorBoundary/ErrorBoundary';
-import { render } from '@testing-library/react';
+// import { render } from '@testing-library/react';
 
 class Persons extends Component { 
 
@@ -9,8 +9,20 @@ class Persons extends Component {
                 console.log('[Persons.js] componentDidMount');
         }
 
-        componentDidUpdate () {
+        shouldComponentUpdate (nextProps, nextState) { // works only for class based components
+                console.log('[Persons.js] shouldComponentUpdate');
+                if(nextProps.persons !== this.props.persons)
+                {
+                        return true;
+                }
+                else{
+                        return false;
+                }
+        }
+
+        componentDidUpdate (prevProps, prevState, snapshot) {
                 console.log('[Persons.js] componentDidUpdate');
+                console.log(snapshot);
         }
 
         componentWillUnmount () {
@@ -19,6 +31,7 @@ class Persons extends Component {
 
 
         render() {
+                console.log('[Persons.js] Rendering....');
                 return  this.props.persons.map((person, index) => {
                         return(
                                 <ErrorBoundary key={person.id}>

@@ -4,18 +4,22 @@ import styled from 'styled-components';
 
 const Cockpit = (props) => {
 
-    useEffect(() => {
+    useEffect(() => {  //works as summation of didMount and didupdate work in class component
         console.log('[Cockpit.js] useEffect');
         //http request...
         setTimeout(
             () => {
                 alert('Saved Data to Cloud')
-            }, 1000
-        );
-        //works as summation of didMount and didupdate work in class component
-    }, [props.persons]); //useEffect will work only when persons is changed which is given in the second argument
-                        //else it will rerun everytime a dependency is changed. If there are no dependency it will run only once i.e in the beginning
-    
+            }, 1000);
+    return () => { console.log('[Cockpit.js] cleanup work in useEffect')} ; // if we return something here, it will run after the render(). it will run as componentUmount() function & can b used for cleanup work
+    }, [] ); //else it will rerun everytime a dependency is changed. If there are no dependency it will run only once i.e in the beginning
+    // [props.persons]); useEffect will work only when persons is changed which is given in the second argument
+             
+    useEffect (() => {
+        console.log('[Cockpit.js] 2nd useEffect');
+        return () => {('[Cockpit.js] cleanup work in 2nd useEffect')}
+    })
+                        
     
     
     const StyledButton = styled.button`
@@ -32,11 +36,11 @@ const Cockpit = (props) => {
     `
 
     const assignedclasses = [];
-    if(props.persons.length <= 2)
+    if(props.personsLength <= 2)
     {
         assignedclasses.push('red');
     }
-    if(props.persons.length <= 1)
+    if(props.personsLength <= 1)
     {
         assignedclasses.push('bold');
     }
@@ -52,4 +56,4 @@ const Cockpit = (props) => {
     );
 }
 
-export default Cockpit;
+export default React.memo(Cockpit);

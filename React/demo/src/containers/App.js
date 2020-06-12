@@ -14,7 +14,8 @@ class App extends Component {
       { id:2,  name : 'Manu', age : 27 },
       { id:3,  name : 'Stephanie', age : 26 }
     ],
-    showPersons: false
+    showPersons: false,
+    showCockpit : true
   }
 
   switchNameHandler = (newName) =>{
@@ -71,8 +72,10 @@ class App extends Component {
     console.log('persons', this.state.persons);
   }
 
-  render() {
 
+
+  render() {
+    console.log('[App.js] Rendering...')
     let fpersons = null;
 
     if ( this.state.showPersons ){
@@ -86,10 +89,14 @@ class App extends Component {
     return (
       
         <div className="App">
-          <Cockpit title = {this.props.apptitle} 
+          <button onClick = {() => {this.setState({showCockpit : false })} }>Remove Cockpit</button>
+          { this.state.showCockpit ? 
+            <Cockpit title = {this.props.apptitle} 
             showpersons = {this.state.showPersons} 
-            persons = {this.state.persons} 
+            personsLength = {this.state.persons.length} 
             click = {this.togglePersonHandler}/>
+             : null
+          }
           {fpersons}  
         </div>
      
