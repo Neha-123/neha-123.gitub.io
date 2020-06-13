@@ -3,7 +3,9 @@ import Person from './Person/Person';
 import ErrorBoundary from '../../containers/ErrorBoundary/ErrorBoundary';
 // import { render } from '@testing-library/react';
 
+
 class Persons extends Component { 
+        
 
         componentDidMount() {
                 console.log('[Persons.js] componentDidMount');

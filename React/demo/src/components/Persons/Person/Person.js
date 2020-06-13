@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 // import Radium from 'radium';
 //import styled from 'styled-components';
 import Auxiliary from '../../../hoc/Auxiliary';
+import WithClass from '../../../hoc/WithClass';
+import PropTypes from 'prop-types';
+import AuthContext from '../../../context/auth-context';
 import './Person.css'
 
 // const StyledDiv = styled.div`
@@ -16,6 +19,20 @@ import './Person.css'
 // 		width: '450px'
 // 	}`
 class Person extends Component  {
+
+	constructor(props) {
+		super(props);
+		this.inputElemenRef = React.createRef();
+	}
+
+	static contextType = AuthContext;
+
+	componentDidMount() {
+		//this.inputElement.focus();
+		this.inputElemenRef.current.focus();
+		console.log(this.context.authenticated);
+	}
+
 	render() {
 		return (
 		//<div className="Person" style = {Style} >
@@ -25,13 +42,29 @@ class Person extends Component  {
 		// </StyledDiv>
 		//</div>
 		<Auxiliary>
+			<AuthContext.Consumer>
+				{(context) => context.authenticated ? <p>Authenticated!</p> : <p>Please Log in</p> }
+			</AuthContext.Consumer>
 			<p onClick = {this.props.click} > I am {this.props.name} and I am {this.props.age} years old</p>
-			<input type="text" onChange = {this.props.change} value = {this.props.name} />	
+			<input 
+				type="text" 
+				onChange = {this.props.change} 
+				value = {this.props.name}
+				//ref = {(inputEl) => {this.inputElement = inputEl} } 
+				ref = {this.inputElemenRef} 
+			/>	
 		</Auxiliary>
 		
 		);
 	}
 }
 
+Person.propTypes = {
+	click : PropTypes.func,
+	name : PropTypes.string,
+	age : PropTypes.number,
+	change : PropTypes.func
+}
+
 // export default Radium(person);
-export default Person;
+export default WithClass(Person, "Person");

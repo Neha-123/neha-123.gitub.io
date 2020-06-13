@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 // import Radium, {StyleRoot} from 'radium';
 import Cockpit from '../components/Cockpit/Cockpit';
 import Persons from '../components/Persons/Persons';
+import WithClass from '../hoc/WithClass';
 // import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 import './App.css';
+import Auxiliary from '../hoc/Auxiliary';
+import AuthContext from '../context/auth-context';
+
 
 
 
@@ -15,7 +19,9 @@ class App extends Component {
       { id:3,  name : 'Stephanie', age : 26 }
     ],
     showPersons: false,
-    showCockpit : true
+    showCockpit : true,
+    changeCounter : 1,
+    authenticated: false
   }
 
   switchNameHandler = (newName) =>{
@@ -52,7 +58,12 @@ class App extends Component {
     person.name = event.target.value;
     const persons = [...this.state.persons];
     persons[personIndex] = person;
-    this.setState({persons : persons});
+    this.setState( (prevState, props) =>{
+      return {
+          persons : persons,
+          changeCounter : prevState.changeCounter +1 
+      } 
+    });
 
     console.log('person', person);
   }
@@ -72,6 +83,10 @@ class App extends Component {
     console.log('persons', this.state.persons);
   }
 
+  loginHandler = () =>{
+    this.setState({authenticated: true});
+  }
+
 
 
   render() {
@@ -88,21 +103,30 @@ class App extends Component {
 
     return (
       
-        <div className="App">
+        <Auxiliary>
           <button onClick = {() => {this.setState({showCockpit : false })} }>Remove Cockpit</button>
-          { this.state.showCockpit ? 
-            <Cockpit title = {this.props.apptitle} 
-            showpersons = {this.state.showPersons} 
-            personsLength = {this.state.persons.length} 
-            click = {this.togglePersonHandler}/>
-             : null
-          }
-          {fpersons}  
-        </div>
+          <AuthContext.Provider
+             value = {{
+               authenticated : this.state.authenticated,
+               login : this.loginHandler
+             }} >
+              { this.state.showCockpit ? 
+                <Cockpit 
+                title = {this.props.apptitle} 
+                showpersons = {this.state.showPersons} 
+                personsLength = {this.state.persons.length} 
+                click = {this.togglePersonHandler}
+                />
+                : null
+              }
+              {fpersons}  
+          </AuthContext.Provider>
+         
+        </Auxiliary>
      
     );
   }
 }
 
 // export default Radium(App);
-export default App;
+export default WithClass(App, "App");
