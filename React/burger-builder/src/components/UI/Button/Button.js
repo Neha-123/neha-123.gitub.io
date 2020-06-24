@@ -17,6 +17,10 @@ const button = (props) => {
             margin-left: 0;
             padding-left: 0;
         }
+        &:disabled {
+            color: #ccc;
+            cursor: not-allowed;
+        }
     `
     const SuccessButton = styled(Simplebutton)`
         color: #5C9210;
@@ -29,7 +33,7 @@ const button = (props) => {
     let CustomButton = (props.btnType === "Success" ) ? SuccessButton : DangerButton
         CustomButton = (props.btnType !== "Success" && props.btnType !== "Danger") ? Simplebutton : CustomButton
     return(
-    <CustomButton onClick = {props.clicked}>{props.children}</CustomButton>
+    <CustomButton onClick = {props.clicked} disabled={props.disabled}>{props.children}</CustomButton>
     )
 }
 

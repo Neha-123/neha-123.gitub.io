@@ -14,6 +14,9 @@ const menu = (props) => {
         padding: 10px 0;
         box-sizing: border-box;
         cursor: pointer;
+        @media (min-width: 500px) {
+            display: none;
+        }
     `
     const StyledDiv = styled.div`
         width: 90%;

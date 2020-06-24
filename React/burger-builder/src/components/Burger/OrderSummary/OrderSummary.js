@@ -1,9 +1,14 @@
-import React from 'react';
-import Auxiliary from '../../../hoc/Auxiliary';
+import React, { useEffect } from 'react';
+import Auxiliary from '../../../hoc/Auxiliary/Auxiliary';
 //import burgerIngredient from '../BurgerIngredient/BurgerIngredient';
 import Button from '../../UI/Button/Button';
 
-const orderSummary = (props) => {
+//in order to use React hooks, name of the component should start with capital letter
+const OrderSummary = (props) => {
+
+    useEffect (() => {
+        console.log('[OrderSummary] useEffect');
+    } );
 
     const ingredientSummary = Object.keys(props.ingredients).map(igKey => {
         return (<li key = {igKey} >
@@ -27,4 +32,4 @@ const orderSummary = (props) => {
     )
 }
 
-export default orderSummary;
+export default OrderSummary;

@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
-import Auxiliary from '../../../hoc/Auxiliary';
+import Auxiliary from '../../../hoc/Auxiliary/Auxiliary';
 import BackDrop from '../Backdrop/Backdrop';
 
-const modal = (props) => {
+const Modal = (props) => {
+
+    useEffect (() => {
+        console.log('[Modal] useEffect');
+    } );
 
     const ModalDiv = styled.div`
         position: fixed;
@@ -34,4 +38,4 @@ const modal = (props) => {
     )
 }
 
-export default modal;
+export default React.memo(Modal);
