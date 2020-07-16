@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
-import Button from '../../../components/UI/Button/Button';
-import Input from '../../../components/UI/Input/Input';
-
+import Form from './Form';
+import axios from '../../../axios-orders';
+import Spinner from '../../../components/UI/Spinner/Spinner';
+import * as actionCreators from '../../../store/actions/index';
 class ContactDetails extends Component {
 
     state = {
@@ -14,10 +16,11 @@ class ContactDetails extends Component {
                     placeholder: 'Your Name'
                 },
                 value: '',
-                validation: {
+                validation : {
                     required: true
-                }                ,
-                valid: false
+                },
+                touched : false,
+                valid : false
             },
             street: {
                 elementType: 'input',
@@ -26,10 +29,11 @@ class ContactDetails extends Component {
                     placeholder: 'Street'
                 },
                 value: '',
-                validation: {
+                validation : {
                     required: true
                 },
-                valid: false
+                touched : false,
+                valid : false
             },
             zipCode: {
                 elementType: 'input',
@@ -38,12 +42,11 @@ class ContactDetails extends Component {
                     placeholder: 'ZIP Code'
                 },
                 value: '',
-                validation: {
-                    required: true,
-                    minLength: 6,
-                    maxLength: 6
+                validation : {
+                    required: true
                 },
-                valid: false
+                touched : false,
+                valid : false
             },
             country:{
                 elementType: 'input',
@@ -51,11 +54,12 @@ class ContactDetails extends Component {
                     type: 'text',
                     placeholder: 'Country'
                 },
-                value='',
-                validation: {
+                value: '',
+                validation : {
                     required: true
                 },
-                valid: false
+                touched : false,
+                valid : false
             },
             email: {
                 elementType: 'input',
@@ -64,10 +68,11 @@ class ContactDetails extends Component {
                     placeholder: 'Your Mail'
                 },
                 value: '',
-                validation: {
+                validation : {
                     required: true
                 },
-                valid: false
+                touched : false,
+                valid : false
             },
             deliveryMethod: {
                 elementType: 'select',
@@ -77,7 +82,7 @@ class ContactDetails extends Component {
                         {value: 'cheapest', displayValue: 'Cheapest'}
                     ]
                 },
-                value: '',
+                value: 'fastest',
                 valid: true,
                 validation: {}
             }
@@ -86,24 +91,21 @@ class ContactDetails extends Component {
         
     }
 
-    checkValidity (value, rules) {
+    checkValidity = (value, rules) => {
         let isValid = true;
-
         if(rules.required) {
             isValid = value.trim() !== '' && isValid;
         }
-        if(rules.minLength) {
-            isValid = value.length >= rules.minLength  && isValid;
-        }
-        if(rules.maxLength) {
-            isValid = value.length <= rules.maxLength  && isValid;
-        }
 
         return isValid;
-
     }
 
-    inputChangedHandler (event, inputIdentifier) {
+
+
+ 
+
+    inputChangedHandler = (event, inputIdentifier) => {
+        console.log(event.target.value);
         const updatedOrderForm = {
             ...this.state.orderForm
         };
@@ -111,10 +113,10 @@ class ContactDetails extends Component {
             ...updatedOrderForm[inputIdentifier]
         };
         updatedFormElement.value = event.target.value;
-
         updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
         updatedFormElement.touched = true;
-
+        console.log('updatedFormElement', updatedFormElement)
+        
         updatedOrderForm[inputIdentifier]= updatedFormElement;
 
         let formisValid = true;
@@ -123,53 +125,60 @@ class ContactDetails extends Component {
         }
 
         this.setState ({orderForm: updatedOrderForm, formisValid : formisValid});
+       // debugger
+
+        
+            
     }
+    
+    orderHandler = (e) => {
+        e.preventDefault();
+        console.log(this.props.ings);
+        // this.setState({spinner : true})
+        let formData ={};
+        for(let key in this.state.orderForm) {
+            formData[key] = this.state.orderForm[key].value;
+        }
+           const order = {
+                ingredients : this.props.ings,
+                price: this.props.price,
+                orderData: formData   
+            }
+            this.props.onOrderBurger(order);
+    
+        // axios asynchronus call is done by REDUX----------------------
+            // axios.post('/orders.json', order)
+            //         .then( response => {this.setState({spinner: false});
+            //                             this.props.history.push('/') })
+            //             .catch( error => this.setState({spinner: false}));
+        // axios asynchronus call is done by REDUX----------------------
+    }
+
     
 
     render() {
 
-        const Styledform = styled.div`
-        margin: 20px auto;
-        width: 80%;
-        text-align: center;
-        box-shadow: 0 2px 3px #ccc;
-        border: 1px solid #eee;
-        padding: 10px;
-        box-sizing: border-box;
-
-        @media (min-width: 600px) {
-            width: 500px;
-        }
-    `
-        const formArray = [];
-        for(let key in this.state.orderForm) {
-            formArray.push({
-                id: key,
-                config : this.state.orderForm[key]
-            })
-        }
-
-
-    
         return(
-            <Styledform>
-                <h3>Enter Your Contact Details</h3>
-                <form>
-                   
-                    {formArray.map( element => {
-                        return <Input 
-                                key= {element.id} 
-                                elementType = {element.config.elementType} 
-                                elementConfig = {element.config.elementConfig} 
-                                value = {element.config.value}
-                                changed= {(event) => {this.inputChangedHandler(event, element.id)}}
-                                invalid={!element.config.valid}
-                                shouldValidate = {element.config.validation}
-                                touched={element.config.touched} />
-                    })}
-                    <Button btnType="Success" disabled={!this.state.formisValid}>Order</Button>
-                </form>
-            </Styledform>
+            <Form  orderForm={this.state.orderForm} 
+                    orderHandler={this.orderHandler}  
+                    inputChangedHandler= {this.inputChangedHandler} 
+                    formisValid = {this.state.formisValid}  />
         );
     }
 }
+
+const mapStatetoProps = state => {
+    return {
+        ings: state.burgerBuilder.ingredients,
+        price: state.burgerBuilder.totalPrice,
+        loading: state.order.loading
+    }
+}
+
+const mapDispatchtoProps = dispatch => {
+    return {
+        onOrderBurger : (orderData) => dispatch(actionCreators.PurchaseBurger(orderData))
+    }
+}
+
+export default connect(mapStatetoProps, mapDispatchtoProps)(ContactDetails);

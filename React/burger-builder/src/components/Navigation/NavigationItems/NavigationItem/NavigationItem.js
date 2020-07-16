@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {NavLink} from 'react-router-dom'
 
 const NavigationItem = (props) => {
 
@@ -17,7 +18,7 @@ const NavigationItem = (props) => {
             align-items: center;
         }
     `
-    const StyledLink = styled.a`
+    const StyledLink = styled(NavLink)`
         color: #8F5C2C;
         text-decoration: none;
         width: 100%;
@@ -27,6 +28,9 @@ const NavigationItem = (props) => {
             color: #40A4C8;
         }
         &:active {
+            color: #40A4C8;
+        }
+        &.active {
             color: #40A4C8;
         }
         @media (min-width: 500px) {
@@ -44,21 +48,26 @@ const NavigationItem = (props) => {
                 border-bottom: 4px solid #40A4C8;
                 color: white;
             }
+            &.active {
+                background-color: #8F5C2C;
+                border-bottom: 4px solid #40A4C8;
+                color: white;
+            }
         }
     `
-    const Active = styled(StyledLink)`
-        color: #40A4C8;
-        @media (min-width: 500px) {
-            background-color: #8F5C2C;
-            border-bottom: 4px solid #40A4C8;
-            color: white;
-        }
-    `
-    const MyLink = (props.active) ? Active : StyledLink;
+    // const Active = styled(StyledLink)`
+    //     color: #40A4C8;
+    //     @media (min-width: 500px) {
+    //         background-color: #8F5C2C;
+    //         border-bottom: 4px solid #40A4C8;
+    //         color: white;
+    //     }
+    // `
+    // const MyLink = (props.active) ? Active : StyledLink;
 
     return (
         <StyledList>
-            <MyLink href={props.link}>{props.children}</MyLink>
+            <StyledLink to={props.link} activeClassName="active" exact={props.exact}>{props.children}</StyledLink>
         </StyledList>
     )
 }
