@@ -22,16 +22,16 @@ const Styledform = styled.div`
 
 const Form = (props) => {
     const formArray = [];
-    for(let key in props.orderForm) {
+    for(let key in props.controls) {
         formArray.push({
             id: key,
-            config : props.orderForm[key]
+            config : props.controls[key]
         })
     }
 
     return(
         <Styledform>
-                <h3>Enter Your Contact Details</h3>
+                <h3>{props.header}</h3>
                 <form>
                    
                     {formArray.map( element => {
@@ -43,10 +43,11 @@ const Form = (props) => {
                                 changed= {(event) => {props.inputChangedHandler(event, element.id)}}
                                 invalid={!element.config.valid}
                                 shouldValidate = {element.config.validation}
-                                touched={element.config.touched}     
+                                touched={element.config.touched}  
+                                errorMessage= {element.config.errorMessage}   
                                 />)
                     })}
-                    <Button btnType="Success" disabled={!props.formisValid} clicked={props.orderHandler}>Order</Button>
+                    <Button btnType="Success" disabled={!props.formisValid} clicked={props.submitHandler}>{props.buttonName}</Button>
                 </form>
             </Styledform>
     );

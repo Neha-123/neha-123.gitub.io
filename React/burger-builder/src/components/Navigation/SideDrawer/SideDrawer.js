@@ -37,7 +37,7 @@ const sideDrawer = (props) => {
             <BackDrop show= {props.open} clicked = {props.close} />
             <MySideDrawer>
                 <Logo height = "11%" />
-                <NavigationItems />
+                <NavigationItems isAunthenticated = {props.isAunthenticated} />
             </MySideDrawer>
         </Auxiliary>
         

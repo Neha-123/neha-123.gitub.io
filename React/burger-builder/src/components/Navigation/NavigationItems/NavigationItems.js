@@ -18,10 +18,14 @@ const NavigationItems = (props) => {
         }
     `
 
-    return(
+    return (
         <StyledList>
             <NavigationItem link="/" exact>Burger Builder</NavigationItem>
-            <NavigationItem link="/orders">Orders</NavigationItem>
+            {props.isAunthenticated ? <NavigationItem link="/orders">Orders</NavigationItem> : null}
+            {!props.isAunthenticated
+                ? <NavigationItem link="/Auth">Authentication</NavigationItem>
+                : <NavigationItem link="/logout">LogOut</NavigationItem>}
+
         </StyledList>
     )
 }

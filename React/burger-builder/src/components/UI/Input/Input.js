@@ -92,7 +92,7 @@ const MystyledInputElement = (props.invalid && props.touched && props.shouldVali
 
     let validationError = null;
     if (props.invalid && props.shouldValidate && props.touched) {
-        validationError = <p>Please enter a valid value!</p>;
+    validationError = <p>{props.errorMessage}</p>;
     }
         return (
         <StyledInput>

@@ -33,7 +33,7 @@ const toolbar = (props) => {
             <Menu clicked={props.MenuClicked} />
             <Logo height = "80%"/>
             <StyledNav>
-                <NavigationItems />
+                <NavigationItems isAunthenticated = {props.isAunthenticated} />
             </StyledNav>
         </StyledToolbar>
     )

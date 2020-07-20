@@ -14,7 +14,7 @@ const spinner = () => {
       }
     `
 
-    const styledspinner = styled.div`
+    const Styledspinner = styled.div`
     
         font-size: 10px;
         margin: 50px auto;
@@ -64,7 +64,7 @@ const spinner = () => {
    
 
    return(
-    <styledspinner>Loading...</styledspinner>
+    <Styledspinner>Loading...</Styledspinner>
    ) 
 }
 
