@@ -105,7 +105,6 @@ class ContactDetails extends Component {
 
 
     inputChangedHandler = (event, inputIdentifier) => {
-        console.log(event.target.value);
         const updatedOrderForm = {
             ...this.state.orderForm
         };
@@ -115,7 +114,6 @@ class ContactDetails extends Component {
         updatedFormElement.value = event.target.value;
         updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
         updatedFormElement.touched = true;
-        console.log('updatedFormElement', updatedFormElement)
 
         updatedOrderForm[inputIdentifier] = updatedFormElement;
 
@@ -125,16 +123,12 @@ class ContactDetails extends Component {
         }
 
         this.setState({ orderForm: updatedOrderForm, formisValid: formisValid });
-        // debugger
-
 
 
     }
 
     orderHandler = (e) => {
         e.preventDefault();
-        console.log(this.props.ings);
-        // this.setState({spinner : true})
         let formData = {};
         for (let key in this.state.orderForm) {
             formData[key] = this.state.orderForm[key].value;

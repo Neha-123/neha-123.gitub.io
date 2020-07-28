@@ -10,7 +10,7 @@ const InitialState = {
 };
 
 const reducer = (state = InitialState, action) => {
-
+    
     switch(action.type) {
         case actionTypes.AUTH_START : return authStart(state, action);
         case actionTypes.AUTH_SUCCESS : return authSuccess(state, action);

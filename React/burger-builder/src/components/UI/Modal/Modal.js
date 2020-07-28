@@ -5,9 +5,7 @@ import BackDrop from '../Backdrop/Backdrop';
 
 const Modal = (props) => {
 
-    useEffect (() => {
-        console.log('[Modal] useEffect');
-    } );
+   
 
     const ModalDiv = styled.div`
         position: fixed;

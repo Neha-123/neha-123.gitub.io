@@ -61,15 +61,14 @@ border: 1px solid red;
 
 const input = (props) => {
 
-//debugger
+
 const MystyledInputElement = (props.invalid && props.touched && props.shouldValidate) ? StyledErrorInputElement  : StyledInputElement;
 
     let inputElement = null;
     switch (props.elementType) {
         case('input') :
-        //debugger
             inputElement = <MystyledInputElement {...props.elementConfig} value = {props.value}  onChange ={props.changed}  />;
-            console.log('props.elementType', props.value);
+           
             break;  
         case('textarea') :
             inputElement = <StyledTextArea {...props.elementConfig} value = {props.value}  onChange ={props.changed} />;

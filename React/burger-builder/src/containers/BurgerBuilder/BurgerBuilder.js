@@ -128,7 +128,6 @@ class BurgerBuilder extends Component {
 
 
     render () {
-       // console.log('BurgerBuilder: this.state.ingredients[meat]', this.state.ingredients["meat"]);
         const disabledInfo = {
             ...this.props.ingrednt
         }
@@ -141,7 +140,6 @@ class BurgerBuilder extends Component {
                 disabledInfo[key]=false;
             }
         }
-        console.log('disabledInfo', disabledInfo);
         let orderSummary = null;
                             
         // if(this.state.spinner) {

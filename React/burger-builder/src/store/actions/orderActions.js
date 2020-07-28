@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../axios-orders';
+import { Simulate } from 'react-dom/test-utils';
 
 export const purchaseBurgerSuccess = (id, orderData) => {
     return {
@@ -7,6 +8,7 @@ export const purchaseBurgerSuccess = (id, orderData) => {
         orderData: orderData,
         orderId: id
     }
+    
 
 }
 
@@ -59,7 +61,6 @@ export const fetchOrderStart = () => {
 }
 
 export const fetchOrders = (token, userId) => {
-    console.log(token);
     // let  headers ={
     //     headers : {
     //         'Authorization' : {token}
