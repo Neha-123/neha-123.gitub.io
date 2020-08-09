@@ -16,6 +16,7 @@ const InitialState = {
 }
 
 const reducer = (state = InitialState, action) => {
+    
     switch (action.type) {
         case actionTypes.INIT_PURCHASE: return purchaseInit(state, action);
         case actionTypes.PURCHASE_BURGER_START: return purchaseBurgerStart(state, action);

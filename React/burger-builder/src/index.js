@@ -10,14 +10,21 @@ import {BrowserRouter} from 'react-router-dom';
 import { createStore, compose, applyMiddleware , combineReducers} from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
+import { watchAuth, watchburgerBuilder, watchorder } from './store/sagas/index';
 
+const sagaMiddleware = createSagaMiddleware();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers ({
   burgerBuilder: burgerBuilderReducer,
   order: orderReducer,
   auth : authReducer
 });
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk, sagaMiddleware)));
+
+sagaMiddleware.run(watchAuth);
+sagaMiddleware.run(watchburgerBuilder);
+sagaMiddleware.run(watchorder);
 
 const app = (
   <Provider store={store}>

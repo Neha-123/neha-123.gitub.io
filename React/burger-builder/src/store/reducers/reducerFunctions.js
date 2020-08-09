@@ -83,6 +83,7 @@ export const FetchOrdersStart = (state, action) => {
 }
 
 export const FetchOrdersSuccess = (state, action) => {
+    
     const updatedState = {
         orders: action.orders,
         loading: false
