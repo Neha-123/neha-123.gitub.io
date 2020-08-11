@@ -12,7 +12,7 @@ const addNotes = function (title, body) {
     const duplicates = notes.filter(function (note) {
         return note.title === title
     })
-
+    
     if (duplicates.length === 0) {
         const newNotes = { title: title, body: body };
         notes.push(newNotes);
@@ -71,7 +71,7 @@ const readNotes = (title) => {
     const matchingNote = notes.find(note => {
         return note.title === title
     })
-
+    debugger
     if(!matchingNote) {
         console.log(chalk.red.bold('No note Found'))
     } else {

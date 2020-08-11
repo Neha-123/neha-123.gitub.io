@@ -11,6 +11,7 @@
   "dependencies": {
     "chalk": "^4.1.0",
     "nodemon": "^2.0.4",
+    "postman-request": "^2.88.1-postman.24",
     "validator": "^13.1.1",
     "yargs": "^15.4.1"
   }
