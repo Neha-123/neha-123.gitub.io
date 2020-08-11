@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import ShoppingBasketRoundedIcon from '@material-ui/icons/ShoppingBasketRounded';
-
+import * as actionCreators from '../store/actions/index';
 
 const styles = {
     basket: {
@@ -13,6 +13,9 @@ const styles = {
 
 const Basket = styled('div')(styles.basket);
 class ShoppingBasket extends Component {
+
+   
+
     render() {
         return (
             <Basket>
@@ -29,5 +32,6 @@ const mapStatetoProps = state => {
     }
 
 }
+
 
 export default connect(mapStatetoProps)(ShoppingBasket);

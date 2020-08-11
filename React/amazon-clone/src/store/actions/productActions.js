@@ -7,6 +7,14 @@ export const addProduct = (product) => {
     }
 }
 
+export const removeProduct = (id) => {
+    return {
+        type: actionTypes.REMOVE_PRODUCT,
+        id : id
+    }
+}
+
+
 export const fetchProduct = (product) => {
     return {
         type: actionTypes.FETCH_PRODUCT,

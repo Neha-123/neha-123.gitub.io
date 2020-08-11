@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import GradeIcon from '@material-ui/icons/Grade';
-
+import numeral from 'numeral';
 
 
 const styles = {
@@ -90,7 +90,7 @@ function ProductCard(props) {
                         .map((_)=> <RateStar fontSize="small"/>)
                     }
                 </Rate>
-                <Price>{props.price}</Price>
+                <Price>&#x20B9;{numeral(props.price).format('0,0.00')}</Price>
             </Content>
             
             <Button onClick={()=>props.addtoCart(props.id)}>Add to Cart</Button>

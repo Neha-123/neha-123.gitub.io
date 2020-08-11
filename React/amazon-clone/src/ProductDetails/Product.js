@@ -5,12 +5,15 @@ import * as actionCreators from '../store/actions/index';
 
 class Product extends Component {
 
+    
+
     addtoCart = (id) => {
        const selectedProduct = this.props.productlist.find(elm => {
             return elm.id === id
         })
         this.props.onAddProducttoCart(selectedProduct);
-        console.log(selectedProduct);
+        
+        
     }
 
     render() {
@@ -24,14 +27,16 @@ class Product extends Component {
 const mapStatetoProps = state => {
     return {
         productlist: state.product,
-        basket : state.basket
+        basket : state.basket,
+        sum: state.sumTotal
     }
 
 }
 
 const mapDispatchtoProps = dispatch => {
     return {
-        onAddProducttoCart : (product) => dispatch(actionCreators.addProduct(product))
+        onAddProducttoCart : (product) => dispatch(actionCreators.addProduct(product)),
+        
     }
 }
 

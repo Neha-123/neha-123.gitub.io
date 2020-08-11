@@ -1,1 +1,1 @@
-export { addProduct, fetchProduct } from './productActions';
+export { addProduct, fetchProduct, removeProduct} from './productActions';

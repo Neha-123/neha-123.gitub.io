@@ -1,4 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
+import {priceAddition, removeItem, resetPrice} from './reducerFunctions';
 
 const InitialState = {
     product: [{
@@ -51,7 +52,8 @@ const InitialState = {
         price: '123'
     }
     ],
-    basket: []
+    basket: [],
+    sumTotal : '0'
 }
 
 const reducer = (state = InitialState, action) => {
@@ -59,15 +61,26 @@ const reducer = (state = InitialState, action) => {
     switch (action.type) {
         case actionTypes.ADD_PRODUCT: return {
             ...state,
-            basket: [...state.basket, action.basket]
+            basket: [...state.basket, action.basket],
+            sumTotal : priceAddition(state.basket, action.basket)
         }
         
             break;
+        case actionTypes.REMOVE_PRODUCT:  
+        const newbasketItem = removeItem(state.basket, action.id)
+        return {
+            ...state,
+            basket: newbasketItem.newBasket,
+            sumTotal : newbasketItem.newPrice
+        }
+        
+            break; 
         case actionTypes.FETCH_PRODUCT: return {
             ...state,
             product: [...state.product, action.product]
         }
             break;
+        
         default: return state;
     }
 }
