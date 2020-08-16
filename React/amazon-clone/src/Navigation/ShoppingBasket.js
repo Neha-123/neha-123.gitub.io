@@ -2,33 +2,43 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import ShoppingBasketRoundedIcon from '@material-ui/icons/ShoppingBasketRounded';
-import * as actionCreators from '../store/actions/index';
+
 
 const styles = {
     basket: {
         display: 'flex',
-        justifyContent : 'space-between'
+        justifyContent: 'space-between'
     }
 }
 
 const Basket = styled('div')(styles.basket);
 class ShoppingBasket extends Component {
 
-   
+
 
     render() {
+        let basketItem = 0;
+        const basketItemQuantity = this.props.basket.map(elm => {
+            return elm.quantity;
+        });
+        if(basketItemQuantity.length>0) {
+            basketItem = basketItemQuantity.reduce((total, num) => {
+                return Number(total) + Number(num)
+            }) 
+        }
+
         return (
             <Basket>
                 <ShoppingBasketRoundedIcon />
-                <span>{this.props.basket.length}</span>
-            </Basket>  
+                <span>{basketItem}</span>
+            </Basket>
         )
     }
 }
 
 const mapStatetoProps = state => {
     return {
-        basket : state.basket
+        basket: state.basket
     }
 
 }

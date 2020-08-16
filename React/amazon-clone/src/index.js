@@ -9,6 +9,8 @@ import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
 const store = createStore(reducer);
+
+
 const app = (
   <Provider store={store}>
     <BrowserRouter>

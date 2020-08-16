@@ -1,74 +1,77 @@
 import React from 'react'
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import numeral from 'numeral';
+import QuantitySelect from './QuantitySelect';
+import * as actionCreators from '../store/actions/index';
 
 const styles = {
     basket: {
         width: '95%',
         margin: 'auto'
     },
-    basketitem : {
-        display:'flex',
-        marginTop : '20px',
-        marginBottom : '20px'
+    basketitem: {
+        display: 'flex',
+        marginTop: '20px',
+        marginBottom: '20px'
     },
-    img : {
+    img: {
         height: '200px',
         width: '150px',
-        objectFit : 'contain'
+        objectFit: 'contain'
     },
-    item : {
-        display:'flex',
+    item: {
+        display: 'flex',
         justifyContent: 'space-between',
-        width:'100%'
+        width: '100%'
     },
-    itemdetails : {
-        display:'flex',
+    itemdetails: {
+        display: 'flex',
         flexDirection: 'column',
         marginLeft: '20px',
         lineHeight: '30px',
-        alignContent:'left'
+        alignContent: 'left'
     },
     itemdescription: {
-        color:'#0066c0',
-        fontSize: '20px',
-        fontWeight:'700',
+        color: '#0066c0',
+        fontSize: '17px',
+        fontWeight: '700',
         lineHeight: '30px'
     },
-    instock : {
+    instock: {
         fontSize: '12px',
-        color:'green',
+        color: 'green',
     },
-    shipping : {
+    shipping: {
         fontSize: '13px',
-        color:'#606060',
-    }, 
-    certified : {
+        color: '#606060',
+    },
+    certified: {
         width: '80px',
         objectFit: 'contain'
     },
-    eventforitem : {
+    eventforitem: {
         display: 'flex',
-        marginTop:'10px'    
+        marginTop: '10px'
     },
-    quantity : {
-        marginRight:'20px'
+    quantity: {
+        marginRight: '20px'
     },
-    links : {
-        fontSize:'13px',
-        color : '#0066C0',
-        fontWeight:'600',
-        marginRight:'20px',
-        cursor:'pointer',
-        '&:hover' : {
+    links: {
+        fontSize: '13px',
+        color: '#0066C0',
+        fontWeight: '600',
+        marginRight: '20px',
+        cursor: 'pointer',
+        '&:hover': {
             color: '#ce760af7',
             textDecoration: 'underline'
         }
     },
-    price : {
+    price: {
         marginLeft: '30px',
-        fontSize:'20px',
-        fontWeight:'700',
+        fontSize: '20px',
+        fontWeight: '700',
     }
 }
 
@@ -87,36 +90,48 @@ const Links = styled('span')(styles.links);
 const Price = styled('span')(styles.price);
 
 
-const CartItemList = (props) => {
+const CartItemList = React.memo(props => {
+
+    const removeItem = (id) => {
+        props.onRemoveProduct(id)
+    }
+
     return (
         <Basket>
-            <hr/>
+            <hr />
             <BasketItem>
                 <StyledImg src={props.productImage} />
                 <Item>
                     <Itemdetails>
-                        <ItemDescription>
-                            {props.productName}
-                        </ItemDescription>
+                        <ItemDescription>{props.productName}</ItemDescription>
                         <Instock>In stock</Instock>
                         <Shipping>Eligible for FREE Shipping</Shipping>
                         <Certified src="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px._CB485936079_.png" />
                         <EventForItem>
-                            <Quantity>Qty</Quantity>
-                            <Links 
-                               onClick={()=>props.removeItem(props.id)}
+                            <QuantitySelect
+                                quantity={props.quantity}
+                                id = {props.id} />
+                            <Links
+                                onClick={() => removeItem(props.id)}
                             >Delete</Links>
                             <Links>Save for later</Links>
                             <Links>See more like this</Links>
                         </EventForItem>
                     </Itemdetails>
-                    <Price>
-                    &#x20B9;{numeral(props.price).format('0,0.00')}
-                    </Price>
+                    <Price>&#x20B9;{numeral(props.price).format('0,0.00')}</Price>
                 </Item>
             </BasketItem>
         </Basket>
     )
+})
+
+
+
+const mapDispatchtoProps = dispatch => {
+    return {
+        onRemoveProduct: (id) => dispatch(actionCreators.removeProduct(id))
+    }
+    
 }
 
-export default CartItemList;
+export default connect(null, mapDispatchtoProps)(CartItemList);

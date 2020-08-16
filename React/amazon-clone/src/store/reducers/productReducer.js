@@ -1,5 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
-import {priceAddition, removeItem, resetPrice} from './reducerFunctions';
+import { priceAddition, removeItem, updateBasketQuantity, addProducttoCart } from './reducerFunctions';
 
 const InitialState = {
     product: [{
@@ -7,80 +7,95 @@ const InitialState = {
         productName: "Bourge Men's Loire-63 Running Shoes ",
         productImage: 'https://images-na.ssl-images-amazon.com/images/I/71A4FOEgLnL._UY695_.jpg',
         rating: '5',
-        price: '723'
+        price: '723',
+        quantity: '0'
     },
     {
         id: '12384',
         productName: "Indian Polity - For Civil Services and Other State Examinations | 6th Edition Paperback – 27",
         productImage: 'https://images-na.ssl-images-amazon.com/images/I/51rKNmuSrsL._SX384_BO1,204,203,200_.jpg',
         rating: '3',
-        price: '312'
+        price: '312',
+        quantity: '0'
     },
     {
         id: '19344',
         productName: "Samsung Galaxy Watch (Bluetooth, 46 mm) - Silver",
         productImage: 'https://images-na.ssl-images-amazon.com/images/I/71LHpHDcnEL._SL1500_.jpg',
         rating: '4',
-        price: '19389'
+        price: '19389',
+        quantity: '0'
     },
     {
         id: '12304',
         productName: "Godrej 190 L 3 Star Inverter Direct-Cool Single Door Refrigerator (RD 1903 PTI 33 DR WN, Denim Scarlet)",
         productImage: 'https://images-na.ssl-images-amazon.com/images/I/71QsP1cEoLL._SL1500_.jpg',
         rating: '4',
-        price: '12389'
+        price: '12389',
+        quantity: '0'
     },
     {
         id: '11344',
         productName: "Sony Bravia 80 cm (32 inches) HD Ready LED TV KLV-32R202G (Dark Brown)",
         productImage: 'https://images-na.ssl-images-amazon.com/images/I/71IgrNZUhPL._SL1500_.jpg',
         rating: '4',
-        price: '15993'
+        price: '15993',
+        quantity: '0'
     },
     {
         id: '12544',
         productName: "boAt Stone 150 Portable Wireless Speaker with 3W Immersive Audio, Bluetooth V5.0, Up to 6H Playback, Multiple Connectivity Modes and FM Mode (Active Black)",
         productImage: 'https://images-na.ssl-images-amazon.com/images/I/71JMY3kxrCL._SL1500_.jpg',
         rating: '5',
-        price: '123'
+        price: '123',
+        quantity: '0'
     },
     {
         id: '12340',
         productName: "Bourge Men's Loire-63 Running Shoes",
         productImage: 'https://images-na.ssl-images-amazon.com/images/I/71A4FOEgLnL._UY695_.jpg',
         rating: '5',
-        price: '123'
+        price: '123',
+        quantity: '0'
     }
     ],
     basket: [],
-    sumTotal : '0'
+    sumTotal: '0',
+    totalBasketQuantity: '0'
 }
 
 const reducer = (state = InitialState, action) => {
 
     switch (action.type) {
-        case actionTypes.ADD_PRODUCT: return {
-            ...state,
-            basket: [...state.basket, action.basket],
-            sumTotal : priceAddition(state.basket, action.basket)
-        }
-        
+        case actionTypes.ADD_PRODUCT_TO_CART: const basketProduct = addProducttoCart(state, action);
+            return {
+                ...state,
+                basket: basketProduct.basket,
+                sumTotal: basketProduct.sum
+            }
             break;
-        case actionTypes.REMOVE_PRODUCT:  
-        const newbasketItem = removeItem(state.basket, action.id)
-        return {
-            ...state,
-            basket: newbasketItem.newBasket,
-            sumTotal : newbasketItem.newPrice
-        }
-        
-            break; 
+
+        case actionTypes.REMOVE_PRODUCT: const newbasketItem = removeItem(state.basket, action.id)
+            return {
+                ...state,
+                basket: newbasketItem.newBasket,
+                sumTotal: newbasketItem.newPrice
+            }
+
+            break;
+        case actionTypes.UPDATE_QUANTITY: const basketItem = updateBasketQuantity(state.basket, action.id, action.quantity);
+            return {
+                ...state,
+                basket: basketItem.newbasket,
+                sumTotal: basketItem.sum
+            }
+            break;
         case actionTypes.FETCH_PRODUCT: return {
             ...state,
             product: [...state.product, action.product]
         }
             break;
-        
+
         default: return state;
     }
 }

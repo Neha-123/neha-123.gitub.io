@@ -25,10 +25,21 @@ const CartPrice = styled('span')(styles.cartprice);
 class TotalPrice extends Component {
     
     render() {
+        let basketItem = 0;
+        const basketItemQuantity = this.props.basket.map(elm => {
+            return elm.quantity;
+        });
+        if(basketItemQuantity.length>0) {
+            basketItem = basketItemQuantity.reduce((total, num) => {
+                return Number(total) + Number(num)
+            }) 
+        }
         return (
             <BasketPrice>
                 <hr />
-                <SpanStyle>Subtotal({this.props.basket.length} items):</SpanStyle>
+                <SpanStyle>Subtotal
+                    ({basketItem} items)
+                    :</SpanStyle>
                 <CartPrice>
                     &#x20B9;{numeral(this.props.totalPrice).format('0,0.00')}
                 </CartPrice>

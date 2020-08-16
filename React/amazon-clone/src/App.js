@@ -9,22 +9,23 @@ import HomePage from './homepage/HomePage';
 function App() {
   return (
     <div className="App">
-      {/* <Navigation /> */}
+      <Navigation />
+
       <Switch>
         <Route path="/checkout">
-          <Navigation >
+          
             <Checkout />
-          </Navigation>
+          
         </Route>
         <Route path="/login">
-          <Navigation >
+          
             <Login />
-          </Navigation>
+          
         </Route>
         <Route path="/">
-          <Navigation >
+          
             <HomePage />
-          </ Navigation>
+          
         </Route>
       </Switch>
     </div>

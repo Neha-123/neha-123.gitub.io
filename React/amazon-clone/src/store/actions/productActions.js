@@ -1,9 +1,10 @@
 import * as actionTypes from './actionTypes';
 
-export const addProduct = (product) => {
+
+export const addProducttoCart = (id) => {
     return {
-        type: actionTypes.ADD_PRODUCT,
-        basket : product
+        type: actionTypes.ADD_PRODUCT_TO_CART,
+        id : id
     }
 }
 
@@ -11,6 +12,14 @@ export const removeProduct = (id) => {
     return {
         type: actionTypes.REMOVE_PRODUCT,
         id : id
+    }
+}
+
+export const updateQuantity = (id, quantity) => {
+    return {
+        type: actionTypes.UPDATE_QUANTITY,
+        id : id,
+        quantity : quantity
     }
 }
 

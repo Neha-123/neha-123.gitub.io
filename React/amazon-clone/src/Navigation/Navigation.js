@@ -27,10 +27,10 @@ const styles = {
          },
         
         [device.tablet]: {
-            width: "99%",
+            width: "100%",
          },
          [device.laptop]: {
-            width: "100%",
+            width: "99.8%",
          },
         
     },
@@ -167,7 +167,7 @@ const NavMenuItemsFirstLine = styled('span')(styles.navMenuItemfirstLine);
 const NavMenuItemsSecLine = styled('span')(styles.navMenuItemSecLine);
 const SearchInput = styled('input')(styles.input);
 
-const Navigation = (props) => {
+const Navigation = React.memo(props => {
     return (
         <NavPage>
             {/* Code for Nav Bar */}
@@ -212,11 +212,8 @@ const Navigation = (props) => {
 
                 </NavMenu>
             </NavBar>
-            <div>
-                {props.children}
-            </div>
         </NavPage>
     )
-}
+})
 
 export default Navigation

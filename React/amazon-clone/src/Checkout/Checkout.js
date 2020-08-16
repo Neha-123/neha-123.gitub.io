@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import CartItemList from './CartItemList';
 import TotalPrice from './TotalPrice';
-import * as actionCreators from '../store/actions/index';
+
 
 const styles = {
     cart : {
@@ -32,9 +32,6 @@ const ItemList = styled('div')(styles.itemlist);
 
 class Checkout extends Component {
 
-    removeItem = (id) => {
-        this.props.onRemoveProduct(id)
-    }
 
     render () {
         return (
@@ -57,7 +54,7 @@ class Checkout extends Component {
                                             productName={element.productName}
                                             productImage={element.productImage}
                                             price={element.price}
-                                            removeItem={this.removeItem}
+                                            quantity = {element.quantity}
                                     />
                                 }) 
                             }
@@ -79,12 +76,6 @@ const mapStatetoProps = state => {
     
 }
 
-const mapDispatchtoProps = dispatch => {
-    return {
-        onRemoveProduct: (id) => dispatch(actionCreators.removeProduct(id))
-    }
-    
-}
 
 
-export default connect(mapStatetoProps, mapDispatchtoProps)(Checkout)
+export default connect(mapStatetoProps)(Checkout)
