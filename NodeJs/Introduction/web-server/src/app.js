@@ -118,6 +118,8 @@ app.get('/weather', (req, res) => {
     
 })
 
+
+
 //displaying error messages ---------------------------
 
 app.get('/help/*', (req, res) => {
