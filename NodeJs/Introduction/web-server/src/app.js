@@ -6,7 +6,7 @@ const forecast = require('./utils/forecast.js');
 const hbs = require('hbs');
 
 const app =  express();
-
+const port = process.env.PORT || 3000;
 
 //Display Dinamic pages or Views ---------------------------------
 app.set('view engine', 'hbs');
@@ -139,6 +139,6 @@ app.get('*', (req, res) => {
 })
 
 
-app.listen(3000, ()=>{
-    console.log('server is up at port 3000')
+app.listen(port, ()=>{
+    console.log('server is up at port '+ port)
 })
