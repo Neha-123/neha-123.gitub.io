@@ -11,12 +11,6 @@ const styles = {
         alignItems: 'center',
         justifyContent: 'center',
         zIndex: '-1000',
-        // [device.mobileL]: {
-        // width: "100%",
-        // },
-        // [device.mobileM]: {
-        //     width: "160%",
-        // },
          [device.mobileS]: {
             width: "205%",
         },
@@ -25,16 +19,7 @@ const styles = {
         },
         [device.laptop]: {
             width: "100%",
-        },
-        // [device.laptopL]: {
-        //     width: "100%",
-        // },
-        // [device.desktop]: {
-        //     width: "100%",
-        // },
-        // [device.desktopL]: {
-        //     width: "100%",
-        // },
+        }
     }
 }
 

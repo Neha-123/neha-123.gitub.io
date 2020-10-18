@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux';
 import numeral from 'numeral';
 import styled from 'styled-components';
+import * as actionCreators from '../store/actions/index';
+import { device } from '../mediaQueries/device';
 
 const styles = {
     basketprice : {
@@ -10,11 +12,19 @@ const styles = {
         
     },
     spanstyle: {
-        fontSize :'20px'
+        fontSize :'20px',
+        [device.mobileS]: {
+            fontSize: '12px',
+            
+         },
     },
     cartprice : {
         fontSize:'20px',
         fontWeight:'700',
+        [device.mobileS]: {
+            fontSize: '15px',
+            
+         },
     }
 }
 const SpanStyle = styled('span')(styles.spanstyle);
@@ -23,17 +33,25 @@ const CartPrice = styled('span')(styles.cartprice);
 
 
 class TotalPrice extends Component {
+
+    componentDidMount = () => {
+        this.props.onCalculateTotalPrice(this.props.basket)
+        
+    }
+
     
     render() {
         let basketItem = 0;
         const basketItemQuantity = this.props.basket.map(elm => {
             return elm.quantity;
         });
+        
         if(basketItemQuantity.length>0) {
             basketItem = basketItemQuantity.reduce((total, num) => {
                 return Number(total) + Number(num)
             }) 
         }
+        
         return (
             <BasketPrice>
                 <hr />
@@ -54,10 +72,16 @@ class TotalPrice extends Component {
 
 const mapStatetoProps = state => {
     return {
-        totalPrice : state.sumTotal,
-        basket:state.basket
+        totalPrice : state.productReducer.sumTotal,
+        basket:state.productReducer.basket
     }
 
 }
 
-export default connect(mapStatetoProps)(TotalPrice)
+const mapDispatchtoProps = dispatch => {
+    return {
+        onCalculateTotalPrice: (basket) => dispatch(actionCreators.calculateTotalPrice(basket)),
+    }
+}
+
+export default connect(mapStatetoProps, mapDispatchtoProps)(TotalPrice)

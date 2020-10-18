@@ -1,1 +1,3 @@
-export { fetchProduct, removeProduct, updateQuantity, addProducttoCart} from './productActions';
+export {calculateTotalPrice, fetchProduct, fetchBasketProduct, removeProductDb, updateBasketQuantity, addProducttoCart} from './productActions';
+
+export { checkEmail, login, logout, createNewAccount } from './customerActions'

@@ -12,18 +12,19 @@ const QuantitySelect = (props) => {
     };
 
     const removeItem = (id) => {
-        props.onRemoveProduct(id)
+        props.onRemoveProduct(id, props.token)
     }
 
-    const updatebasketQuantity = (id, quantity) => {
-        props.onSetQuantity(id, quantity);
+    const updatebasketQuantity = (id, quantity, productId) => {
+        props.onSetQuantity(id, quantity, productId, props.token);
+        
     }
 
     const updateQuantity = (quantity) => {
         if (quantity === 0) {
             removeItem(props.id)
         } else {
-            updatebasketQuantity(props.id, quantity);
+            updatebasketQuantity(props.id, quantity, props.product_id);
         }
 
     }
@@ -55,14 +56,20 @@ const QuantitySelect = (props) => {
 
 }
 
+const mapStateToProps = state => {
+    return {
+        token: state.customerReducer.token
+    }
+}
+
 const mapDispatchtoProps = dispatch => {
     return {
-        onRemoveProduct: (id) => dispatch(actionCreators.removeProduct(id)),
-        onSetQuantity : (id, quantity) => dispatch(actionCreators.updateQuantity(id, quantity))
+        onRemoveProduct: (id, token) => dispatch(actionCreators.removeProductDb(id, token)),
+        onSetQuantity : (id, quantity, productId, token) => dispatch(actionCreators.updateBasketQuantity(id, quantity, productId, token))
     }
     
 }
 
 
 
-export default connect(null, mapDispatchtoProps)(QuantitySelect);
+export default connect(mapStateToProps, mapDispatchtoProps)(QuantitySelect);

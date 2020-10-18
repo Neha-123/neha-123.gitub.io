@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import numeral from 'numeral';
 import QuantitySelect from './QuantitySelect';
 import * as actionCreators from '../store/actions/index';
+import { device } from '../mediaQueries/device';
 
 const styles = {
     basket: {
@@ -16,9 +17,10 @@ const styles = {
         marginBottom: '20px'
     },
     img: {
-        height: '200px',
-        width: '150px',
-        objectFit: 'contain'
+        objectFit: 'contain',
+        [device.mobileS]: {
+            height: '125px',
+         },
     },
     item: {
         display: 'flex',
@@ -30,13 +32,20 @@ const styles = {
         flexDirection: 'column',
         marginLeft: '20px',
         lineHeight: '30px',
-        alignContent: 'left'
+        alignContent: 'left',
+         
+
     },
     itemdescription: {
         color: '#0066c0',
         fontSize: '17px',
         fontWeight: '700',
-        lineHeight: '30px'
+        lineHeight: '30px',
+        [device.mobileS]: {
+            fontSize: '12px',
+            fontWeight: '600',
+            lineHeight: '20px',
+         },
     },
     instock: {
         fontSize: '12px',
@@ -52,12 +61,13 @@ const styles = {
     },
     eventforitem: {
         display: 'flex',
-        marginTop: '10px'
+        marginTop: '10px',
+        
     },
     quantity: {
         marginRight: '20px'
     },
-    links: {
+    delete: {
         fontSize: '13px',
         color: '#0066C0',
         fontWeight: '600',
@@ -66,12 +76,55 @@ const styles = {
         '&:hover': {
             color: '#ce760af7',
             textDecoration: 'underline'
-        }
+        },
+        [device.mobileS]: {
+            fontSize: '12px',
+            fontWeight: '400',
+            marginRight: '7px',
+         },
+    },
+    save: {
+        fontSize: '13px',
+        color: '#0066C0',
+        fontWeight: '600',
+        marginRight: '20px',
+        cursor: 'pointer',
+        '&:hover': {
+            color: '#ce760af7',
+            textDecoration: 'underline'
+        },
+        [device.mobileS]: {
+            fontSize: '12px',
+            fontWeight: '400',
+            marginRight: '7px',
+            width:'70px'
+         },
+    },
+    more: {
+        fontSize: '13px',
+        color: '#0066C0',
+        fontWeight: '600',
+        marginRight: '20px',
+        cursor: 'pointer',
+        '&:hover': {
+            color: '#ce760af7',
+            textDecoration: 'underline'
+        },
+        [device.mobileS]: {
+            fontSize: '12px',
+            fontWeight: '400',
+            marginRight: '7px',
+            width:'115px'
+         },
     },
     price: {
         marginLeft: '30px',
         fontSize: '20px',
         fontWeight: '700',
+        [device.mobileS]: {
+            fontSize: '15px',
+            fontWeight: '600',
+         },
     }
 }
 
@@ -85,15 +138,16 @@ const Instock = styled('span')(styles.instock);
 const Shipping = styled('span')(styles.shipping);
 const Certified = styled('img')(styles.certified);
 const EventForItem = styled('div')(styles.eventforitem);
-const Quantity = styled('button')(styles.quantity);
-const Links = styled('span')(styles.links);
+const Delete = styled('span')(styles.delete);
+const Save = styled('span')(styles.save);
+const More = styled('span')(styles.more);
 const Price = styled('span')(styles.price);
 
 
 const CartItemList = React.memo(props => {
 
     const removeItem = (id) => {
-        props.onRemoveProduct(id)
+        props.onRemoveProduct(id, props.token)
     }
 
     return (
@@ -110,12 +164,13 @@ const CartItemList = React.memo(props => {
                         <EventForItem>
                             <QuantitySelect
                                 quantity={props.quantity}
-                                id = {props.id} />
-                            <Links
+                                id={props.id}
+                                product_id={props.product_id} />
+                            <Delete
                                 onClick={() => removeItem(props.id)}
-                            >Delete</Links>
-                            <Links>Save for later</Links>
-                            <Links>See more like this</Links>
+                            >Delete</Delete>
+                            <Save>Save for later</Save>
+                            <More>See more like this</More>
                         </EventForItem>
                     </Itemdetails>
                     <Price>&#x20B9;{numeral(props.price).format('0,0.00')}</Price>
@@ -125,13 +180,18 @@ const CartItemList = React.memo(props => {
     )
 })
 
+const mapStateToProps = state => {
+    return {
+        token: state.customerReducer.token
+    }
+}
 
 
 const mapDispatchtoProps = dispatch => {
     return {
-        onRemoveProduct: (id) => dispatch(actionCreators.removeProduct(id))
+        onRemoveProduct: (id, token) => dispatch(actionCreators.removeProductDb(id, token))
     }
-    
+
 }
 
-export default connect(null, mapDispatchtoProps)(CartItemList);
+export default connect(mapStateToProps, mapDispatchtoProps)(CartItemList);

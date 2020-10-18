@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom'
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import ShoppingBasket from './ShoppingBasket';
+import { connect } from 'react-redux';
 import { device } from '../mediaQueries/device';
 
 
@@ -44,7 +45,7 @@ const styles = {
         }
     },
     img: {
-        width: '120px',
+        width: "50px",
         height: '100%',
         objectFit: 'contain',
         [device.mobileS]: {
@@ -170,11 +171,10 @@ const SearchInput = styled('input')(styles.input);
 const Navigation = React.memo(props => {
     return (
         <NavPage>
-            {/* Code for Nav Bar */}
             <NavBar>
                 <StyledLink to="/">
                     <LogoDiv>
-                        <LogoImg src="https://www.mabaya.com/wp-content/uploads/2019/10/amazon_PNG25.png" alt="amazon" />
+                        <LogoImg rel="preconnect"  src="https://www.mabaya.com/wp-content/uploads/2019/10/amazon_PNG25.png" alt="amazon" />
                     </LogoDiv>
                 </StyledLink>
 
@@ -186,12 +186,20 @@ const Navigation = React.memo(props => {
 
                 </SearchDiv>
                 <NavMenu>
-                    <StyledLink to="/login">
+                    {(props.isAuthenticated) 
+                    ? <StyledLink to="/logOut">
+                        <NavMenuItems>
+                            <NavMenuItemsFirstLine>Hello, {props.name} </NavMenuItemsFirstLine>
+                            <NavMenuItemsSecLine>LogOut</NavMenuItemsSecLine>
+                        </NavMenuItems>
+                    </StyledLink>
+                    : <StyledLink to="/login">
                         <NavMenuItems>
                             <NavMenuItemsFirstLine>Hello, SignIn</NavMenuItemsFirstLine>
                             <NavMenuItemsSecLine>Account & lists</NavMenuItemsSecLine>
                         </NavMenuItems>
                     </StyledLink>
+                    }
                     <StyledLink to="/">
                         <NavMenuItems>
                             <NavMenuItemsFirstLine>Returns</NavMenuItemsFirstLine>
@@ -216,4 +224,13 @@ const Navigation = React.memo(props => {
     )
 })
 
-export default Navigation
+const mapStatetoProps = state => {
+    return {
+        isAuthenticated: state.customerReducer.token !== null,
+        name: state.customerReducer.name
+        
+    }
+
+}
+
+export default connect(mapStatetoProps)(Navigation)

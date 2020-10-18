@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import ProductCard from './ProductCard';
 
@@ -20,24 +20,24 @@ const ProductlistStyle = styled('div')(styles.productlist);
 const ProductList = (props) => {
 
     return (
-            <ProductlistStyle>
-                {props.productlist.map(elm => {
-                    return (
-                        <ProductCard
-                            key={elm.id}
-                            id={elm.id}
-                            imagelink={elm.productImage}
-                            productname={elm.productName}
-                            rate={elm.rating}
-                            price={elm.price}
-                            addtoCart={props.addtoCart}
-                        />
-                    )
-                })}
+        <ProductlistStyle>
+            {props.productlist.map(elm => {
+                return (
+                    <ProductCard
+                        key={elm._id}
+                        id={elm._id}
+                        imagelink={elm.productImage}
+                        productname={elm.productName}
+                        rate={elm.rating}
+                        price={elm.price}
+                        addtoCart={props.addtoCart}
+                    />
+                )
+            })}
 
-            </ProductlistStyle>
-        )
-    
+        </ProductlistStyle>
+    )
+
 }
 
 

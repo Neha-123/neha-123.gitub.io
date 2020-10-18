@@ -6,29 +6,28 @@ import * as actionCreators from '../store/actions/index';
 
 class Product extends Component {
 
-
-    addtoCart = (id) => {
-        this.props.onAddProducttoCart(id);
+    componentDidMount = () => {
+        this.props.onFetchAllProducts();
+        
     }
 
 
     render() {
         return (
             <ProductList
-                productlist={this.props.productlist}
-                addtoCart={this.addtoCart} />
+                productlist={this.props.productlist} />
         )
     }
 }
 const mapStatetoProps = state => {
     return {
-        productlist: state.product
+        productlist: state.productReducer.product
     }
 }
 
 const mapDispatchtoProps = dispatch => {
     return {
-        onAddProducttoCart: (id) => dispatch(actionCreators.addProducttoCart(id)),
+        onFetchAllProducts: () => dispatch(actionCreators.fetchProduct())
     }
 }
 

@@ -1,35 +1,36 @@
 import React from 'react';
 import './App.css';
 import Navigation from './Navigation/Navigation';
-import { Route, Switch, withRouter } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Checkout from './Checkout/Checkout';
-import Login from './login/Login';
+import NewUserSignIn from './login/NewUserSignIn';
 import HomePage from './homepage/HomePage';
+import LogOut from './logout/LogOut';
+import CreateAccount from './login/CreateAccount';
 
 function App() {
   return (
     <div className="App">
-      <Navigation />
-
       <Switch>
         <Route path="/checkout">
-          
-            <Checkout />
-          
+          <Navigation />
+          <Checkout />
         </Route>
         <Route path="/login">
-          
-            <Login />
-          
+          <NewUserSignIn />
+        </Route>
+        <Route path="/createAccount">
+          <CreateAccount />
+        </Route>
+        <Route path="/logOut">
+          <LogOut />
         </Route>
         <Route path="/">
-          
-            <HomePage />
-          
+          <Navigation />
+          <HomePage />
         </Route>
       </Switch>
     </div>
-
   );
 }
 
